@@ -16,4 +16,4 @@ name: DefHash
 resources:
   homepage: http://metacpan.org/dist/DefHash
   repository: http://github.com/sharyanto/perl-DefHash
-version: 1.0.0
+version: 1.0.1

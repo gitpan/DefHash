@@ -17,7 +17,7 @@ my %module_build_args = (
     "Steven Haryanto <stevenharyanto\@gmail.com>"
   ],
   "dist_name" => "DefHash",
-  "dist_version" => "1.0.0",
+  "dist_version" => "1.0.1",
   "license" => "perl",
   "module_name" => "DefHash",
   "recommends" => {},
