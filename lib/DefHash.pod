@@ -1,6 +1,6 @@
 package DefHash; # just to make PodWeaver happy
 
-our $VERSION = '1.0.1'; # VERSION
+our $VERSION = '1.0.2'; # VERSION
 
 1;
 # ABSTRACT: Define things according to a specification, using hashes
@@ -15,7 +15,7 @@ DefHash - Define things according to a specification, using hashes
 
 =head1 VERSION
 
-version 1.0.1
+version 1.0.2
 
 =head1 SPECIFICATION VERSION
 
@@ -190,9 +190,10 @@ assumed to be marked up in Markdown.
 A list of one or more tags, can be used to categorize the thing that is
 described.
 
-=item * B<default_lang> => TEXT (default: en_US)
+=item * B<default_lang> => TEXT
 
-Default language.
+Default language. Defaults to parent's value, or if parent does not exist, from
+environment LANG, or if undefined or C<C>, C<en_US>.
 
 =back
 
