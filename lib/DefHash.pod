@@ -1,6 +1,6 @@
 package DefHash; # just to make PodWeaver happy
 
-our $VERSION = '1.0.2'; # VERSION
+# VERSION
 
 1;
 # ABSTRACT: Define things according to a specification, using hashes
@@ -15,7 +15,7 @@ DefHash - Define things according to a specification, using hashes
 
 =head1 VERSION
 
-version 1.0.2
+version 1.0.3
 
 =head1 SPECIFICATION VERSION
 
@@ -31,6 +31,10 @@ L<Sah>, L<Rinci>, L<Riap>, L<Module::Patch>.
 
 In this document, hashes are written in JSON or pseudo-JSON (e.g. contains
 ellipsis C<...> or JavaScript-style comments C<// ...>).
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL "NOT", "SHOULD",
+"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
+interpreted as described in RFC 2119.
 
 =head2 Definitions
 
@@ -195,6 +199,21 @@ described.
 Default language. Defaults to parent's value, or if parent does not exist, from
 environment LANG, or if undefined or C<C>, C<en_US>.
 
+=item * B<x> => ANY
+
+This property is used to store extended (application-specific) attributes, much
+like the C<X-> prefix in HTTP or email headers. This property can be used as an
+alternative to using underscore prefix (e.g. C<_foo>). Some processing tools
+strip properties/attributes that begin with underscores, so to pass extended
+metadata around, it might be more convenient to use the C<x> property.
+
+Example:
+
+ {
+     "x.myapp.foo" => 1,
+     "x.myapp.bar" => "some value",
+ }
+
 =back
 
 =head2 Property attributes
@@ -251,7 +270,7 @@ Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Steven Haryanto.
+This software is copyright (c) 2013 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
