@@ -1,21 +1,29 @@
 Revision history for DefHash
 
+1.0.4   2014-03-27 (SHARYANTO)
+
+        - Specify that each tag in 'tags' can also be a defhash (this is already
+          practised by Perinci::Sub::Gen::AccessTable for some time).
+
+        - Fix typos.
+
+
 1.0.3   2013-04-11 (SHARYANTO)
 
-        Introduce property 'x'.
+        - Introduce property 'x'.
 
 
 1.0.2   2012-11-10 (SHARYANTO)
 
-        Property 'default_lang' should be set to LANG first before falling back
-        to 'en_US'.
+        - Property 'default_lang' should be set to LANG first before falling
+          back to 'en_US'.
 
 
 1.0.1   2012-09-14 (SHARYANTO)
 
-        No spec changes. Fix typos.
+        - No spec changes. Fix typos.
 
 
 1.0.0   2012-09-14 (SHARYANTO)
 
-        First version.
+        - First version.

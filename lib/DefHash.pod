@@ -5,9 +5,11 @@ package DefHash; # just to make PodWeaver happy
 1;
 # ABSTRACT: Define things according to a specification, using hashes
 
-
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -15,7 +17,7 @@ DefHash - Define things according to a specification, using hashes
 
 =head1 VERSION
 
-version 1.0.3
+version 1.0.4
 
 =head1 SPECIFICATION VERSION
 
@@ -44,10 +46,9 @@ interpreted as described in RFC 2119.
 
 A regular hash, or dictionary (as it is called in Python), or associative array
 (as it is called in PHP), or object (as it is called in JavaScript). A defhash
-has B<properties>, which normally translates to the hash key/value pairs.
-Property names normally translates to hash keys, while property values
-translates to hash values. "Normally" is used here because property can have
-attributes, which are also written as hash key/value pairs:
+has B<properties>, which translates to the hash key/value pairs. B<Property
+names> translates to hash keys, while B<property values> translates to hash
+values. The same hash key/value pairs are used to store B<property attributes>:
 
  {
      "v": 1,                         // set value for property 'v'
@@ -60,13 +61,14 @@ attributes, which are also written as hash key/value pairs:
  }
 
 The above defhash defines two properties: C<prop1> and C<prop2>. C<prop1> has
-two attributes, C<attr1> and C<attr1.subattr1>. Properties which start with
-underscore (C<_>) are ignored; this can be used to put extraneous information.
-Likewise for attributes which starts with underscore.
+two attributes, C<attr1> and C<attr1.subattr1>. Properties with names starting
+with underscore (C<_>) are ignored; this can be used to put extra information.
+Likewise for attribute names which start with underscore.
 
 Property names must follow this regex '\A[a-z][a-z0-9_]*\z' (an
-alphanumeric-only word). Property attributes must follow this regex:
-'\A[a-z][a-z0-9_]*([a-z][a-z0-9_]*)*\z' (a dotted alphanumeric word).
+Lowercase-alphanumeric-only word). Property attributes must follow this regex:
+'\A[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*)*\z' (a dotted lowercase-alphanumeric
+word).
 
 Property value can be anything. It can contain another defhash for defining
 subentities, for example. In Rinci, a function metadata has a property called
@@ -154,7 +156,7 @@ Must not have attributes. This specifies the version of DefHash specification
 itself. It is hoped that this should never change, so normally a defhash need
 not specify this.
 
-=item * B<summary> => TEXT
+=item * B<name> => TEXT
 
 A short (usually single-word) name for the thing that is described. For example,
 in Rinci function metadata, it is the function's name. In Sah, it is a name of
@@ -189,10 +191,18 @@ function does:
 A longer description. Normally a paragraph or longer of text. The text is
 assumed to be marked up in Markdown.
 
-=item * B<tags> => ARRAY[TEXT]
+=item * B<tags> => ARRAY[TEXT | DEFHASH]
 
 A list of one or more tags, can be used to categorize the thing that is
-described.
+described. Example:
+
+ "tags": ["important", "category:filtering", "category:filtering-for-foo"],
+
+Each tag can also be a defhash for more detailed specification:
+
+ "tags": ["important",
+          {"name":"category:filtering", "summary":"filtering field"},
+          {"name":"category:filtering-for-foo", "summary":"filtering for field 'foo'"}]
 
 =item * B<default_lang> => TEXT
 
@@ -264,16 +274,31 @@ Semantic Versioning, L<http://semver.org>
 
 Markdown specification
 
+=head1 HOMEPAGE
+
+Please visit the project's homepage at L<https://metacpan.org/release/DefHash>.
+
+=head1 SOURCE
+
+Source repository is at L<https://github.com/sharyanto/perl-DefHash>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website L<https://rt.cpan.org/Public/Dist/Display.html?Name=DefHash>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
 =head1 AUTHOR
 
 Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Steven Haryanto.
+This software is copyright (c) 2014 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
