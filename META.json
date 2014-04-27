@@ -27,6 +27,11 @@
             "Test::Rinci" : "0.01"
          }
       },
+      "runtime" : {
+         "requires" : {
+            "perl" : "5.010001"
+         }
+      },
       "test" : {
          "requires" : {
             "File::Spec" : "0",
@@ -48,7 +53,7 @@
          "web" : "https://github.com/sharyanto/perl-DefHash"
       }
    },
-   "version" : "1.0.4",
+   "version" : "1.0.5",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.018002"
@@ -150,9 +155,9 @@
             "version" : "5.013"
          },
          {
-            "class" : "Dist::Zilla::Plugin::OurPkgVersion",
-            "name" : "@Author::SHARYANTO/OurPkgVersion",
-            "version" : "0.005001"
+            "class" : "Dist::Zilla::Plugin::OurDate",
+            "name" : "@Author::SHARYANTO/OurDate",
+            "version" : "0.01"
          },
          {
             "class" : "Dist::Zilla::Plugin::PodWeaver",
@@ -182,6 +187,11 @@
                         "class" : "Pod::Weaver::Section::Version",
                         "name" : "@Author::SHARYANTO/Version",
                         "version" : "4.006"
+                     },
+                     {
+                        "class" : "Pod::Weaver::Section::ReleaseDate",
+                        "name" : "@Author::SHARYANTO/ReleaseDate",
+                        "version" : "0.01"
                      },
                      {
                         "class" : "Pod::Weaver::Section::Region",
@@ -275,6 +285,11 @@
             "version" : "4.005"
          },
          {
+            "class" : "Dist::Zilla::Plugin::PruneFiles",
+            "name" : "@Author::SHARYANTO/PruneFiles",
+            "version" : "5.013"
+         },
+         {
             "class" : "Dist::Zilla::Plugin::ReadmeFromPod",
             "name" : "@Author::SHARYANTO/ReadmeFromPod",
             "version" : "0.21"
@@ -283,6 +298,11 @@
             "class" : "Dist::Zilla::Plugin::Rinci::Validate",
             "name" : "@Author::SHARYANTO/Rinci::Validate",
             "version" : "0.12"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::SHARYANTO::OurPkgVersion",
+            "name" : "@Author::SHARYANTO/SHARYANTO::OurPkgVersion",
+            "version" : "0.02"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::Compile",
@@ -304,16 +324,6 @@
             "class" : "Dist::Zilla::Plugin::Test::Rinci",
             "name" : "@Author::SHARYANTO/Test::Rinci",
             "version" : "0.01"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Run::BeforeBuild",
-            "name" : "@Author::SHARYANTO/Run::BeforeBuild",
-            "version" : "0.020"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Run::Release",
-            "name" : "@Author::SHARYANTO/Run::Release",
-            "version" : "0.020"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",

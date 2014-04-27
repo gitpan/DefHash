@@ -2,7 +2,6 @@
 Changes
 LICENSE
 MANIFEST
-MANIFEST.SKIP
 META.json
 META.yml
 Makefile.PL
@@ -10,6 +9,7 @@ README
 dist.ini
 lib/DefHash.pm
 lib/DefHash.pod
+lib/Sah/Schema/DefHash.pm
 t/00-compile.t
 t/release-pod-coverage.t
 t/release-pod-syntax.t

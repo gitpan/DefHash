@@ -1,5 +1,12 @@
 Revision history for DefHash
 
+1.0.5   2014-04-27 (SHARYANTO)
+
+        - No spec changes.
+
+        - Add Sah::Schema::DefHash.
+
+
 1.0.4   2014-03-27 (SHARYANTO)
 
         - Specify that each tag in 'tags' can also be a defhash (this is already

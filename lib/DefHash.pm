@@ -1,6 +1,6 @@
 package DefHash;
 
-our $VERSION = '1.0.4'; # VERSION
+our $VERSION = '1.0.5'; # VERSION
 
 1;
 # ABSTRACT: Define things according to a specification, using hashes
@@ -17,7 +17,11 @@ DefHash - Define things according to a specification, using hashes
 
 =head1 VERSION
 
-version 1.0.4
+version 1.0.5
+
+=head1 RELEASE DATE
+
+2014-04-27
 
 =head1 HOMEPAGE
 
