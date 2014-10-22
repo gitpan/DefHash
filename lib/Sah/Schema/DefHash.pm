@@ -4,13 +4,25 @@ use 5.010001;
 use strict;
 use warnings;
 
-our $VERSION = '1.0.5'; # VERSION
-our $DATE = '2014-04-27'; # DATE
+our $VERSION = '1.0.6'; # VERSION
+our $DATE = '2014-10-22'; # DATE
 
 our %SCHEMAS;
 
-$SCHEMAS{defhash} = [
-    'hash',
+$SCHEMAS{defhash} = [hash => {
+    # tmp
+    _prop => {
+        v => {},
+        defhash_v => {},
+        name => {},
+        caption => {},
+        summary => {},
+        description => {},
+        tags => {},
+        default_lang => {},
+        x => {},
+    },
+
     keys => {
 
         v         => ['float*', default=>1],
@@ -31,6 +43,10 @@ $SCHEMAS{defhash} = [
                     'max_len.err_msg'   => 'should be short',
                 },
             ],
+        ],
+
+        caption   => [
+            'str*',
         ],
 
         summary   => [
@@ -75,14 +91,13 @@ $SCHEMAS{defhash} = [
     },
     'keys.restrict' => 0,
     'allowed_keys_re' => qr/\A\w+(\.\w+)*\z/,
-];
+}];
 
-$SCHEMAS{defhash_v1} = [
-    'defhash',
+$SCHEMAS{defhash_v1} = [defhash => {
     keys => {
         defhash_v => ['int*', is=>1],
     },
-];
+}];
 
 # XXX check known attributes (.alt, etc)
 # XXX check alt.XXX format (e.g. must be alt\.(lang\.\w+|env_lang\.\w+)
@@ -103,11 +118,7 @@ Sah::Schema::DefHash - Sah schemas to validate DefHash
 
 =head1 VERSION
 
-version 1.0.5
-
-=head1 RELEASE DATE
-
-2014-04-27
+This document describes version 1.0.6 of Sah::Schema::DefHash (from Perl distribution DefHash), released on 2014-10-22.
 
 =head1 SYNOPSIS
 
@@ -139,7 +150,7 @@ Please visit the project's homepage at L<https://metacpan.org/release/DefHash>.
 
 =head1 SOURCE
 
-Source repository is at L<https://github.com/sharyanto/perl-DefHash>.
+Source repository is at L<https://github.com/perlancar/perl-DefHash>.
 
 =head1 BUGS
 
@@ -151,11 +162,11 @@ feature.
 
 =head1 AUTHOR
 
-Steven Haryanto <stevenharyanto@gmail.com>
+perlancar <perlancar@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Steven Haryanto.
+This software is copyright (c) 2014 by perlancar@cpan.org.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

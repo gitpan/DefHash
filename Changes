@@ -1,5 +1,10 @@
 Revision history for DefHash
 
+1.0.6   2014-10-22 (PERLANCAR)
+
+        - Introduce 'caption' property.
+
+
 1.0.5   2014-04-27 (SHARYANTO)
 
         - No spec changes.
