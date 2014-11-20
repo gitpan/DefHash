@@ -17,7 +17,7 @@ DefHash - Define things according to a specification, using hashes
 
 =head1 VERSION
 
-This document describes version 1.0.6 of DefHash (from Perl distribution DefHash), released on 2014-10-22.
+This document describes version 1.0.7 of DefHash (from Perl distribution DefHash), released on 2014-11-20.
 
 =head1 SPECIFICATION VERSION
 
@@ -260,6 +260,42 @@ taken to not be ambiguous, since attribute names can only be words):
      "summary.alt.env_lang.web.id_ID":"(Summary in Indonesian, for web)",
      "summary.alt.env_lang.cmdline.id_ID":"(Summary in Indonesian, for cmdline)"
  }
+
+Another one that is currently used:
+
+ alt.neg
+
+This is used for example in summary of L<Rinci> function argument specification
+to specify the negation. For example:
+
+ # argument specification
+ "full": {
+     "schema": "bool",
+     "summary": "Turn on full processing",
+     "summary.alt.neg": "Turn off full processing"
+ }
+
+The C<alt.neg> version can be displayed, e.g. when showing summary for
+command-line option C<--nofull> (while the "positive" summary can be used for
+the C<--full> option).
+
+Another related one:
+
+ alt.posneg
+
+This one means showing both positive and negative version in one statement, for
+example:
+
+ # argument specification
+ "full": {
+     "schema": "bool",
+     "summary": "Turn on full processing",
+     "summary.alt.neg": "Turn off full processing"
+     "summary.alt.posneg": "Turn on (off) full processing"
+ }
+
+In a CLI application, the C<alt.posneg> version can be used as a summary for
+entry C<--full (--nofull)>.
 
 =back
 

@@ -1,6 +1,6 @@
 package DefHash;
 
-our $VERSION = '1.0.6'; # VERSION
+our $VERSION = '1.0.7'; # VERSION
 
 1;
 # ABSTRACT: Define things according to a specification, using hashes
@@ -17,7 +17,7 @@ DefHash - Define things according to a specification, using hashes
 
 =head1 VERSION
 
-This document describes version 1.0.6 of DefHash (from Perl distribution DefHash), released on 2014-10-22.
+This document describes version 1.0.7 of DefHash (from Perl distribution DefHash), released on 2014-11-20.
 
 =head1 HOMEPAGE
 

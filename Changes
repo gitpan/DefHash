@@ -1,5 +1,12 @@
 Revision history for DefHash
 
+1.0.7   2014-11-20 (PERLANCAR)
+
+        - No spec changes.
+
+        - Mention 'alt.neg' and 'alt.posneg'.
+
+
 1.0.6   2014-10-22 (PERLANCAR)
 
         - Introduce 'caption' property.
