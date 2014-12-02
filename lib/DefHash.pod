@@ -17,7 +17,7 @@ DefHash - Define things according to a specification, using hashes
 
 =head1 VERSION
 
-This document describes version 1.0.7 of DefHash (from Perl distribution DefHash), released on 2014-11-20.
+This document describes version 1.0.8 of DefHash (from Perl distribution DefHash), released on 2014-12-02.
 
 =head1 SPECIFICATION VERSION
 
@@ -234,25 +234,54 @@ Example:
 
 Below is the list of property attributes that must be supported.
 
-=over 4
+=over
 
 =item * alt
 
 This attribute can be used to store alternate property values. The most common
-are:
-
- alt.lang.<LANG_CODE>
-
-Example:
+is alternative language (C<alt.lang.LANG_CODE>), where you want to provide
+translations. Example:
 
  {
      "summary": "An English summary",
      "summary.alt.lang.id_ID": "Ringkasan dalam bahasa Indonesia",
  }
 
-Another example (alternate value for different language, C<lang>, and different
-environment, C<env>; the ordering should be asciibetical and a care should be
-taken to not be ambiguous, since attribute names can only be words):
+Another kind of alternate is environment (C<alt.env.NAME>), for example we might
+want to use different summary when displayed in a CLI program vs web
+application. Example (in a Rinci function argument's specification):
+
+ {
+     "summary.alt.env.cmdline": "Like --foo, do something foobar-ish",
+     "summary.alt.env.web": "Like the `foo` field, do something foobar-ish",
+ }
+
+Another kind of alternate is boolean logic (C<alt.bool.WHICH>, where C<WHICH>
+can be C<not>), when you want to specify the negative sense/sentence instead of
+the regular positive one. Example (in a Rinci function argument's
+specification):
+
+ "tcp": {
+     "schema": "bool",
+     "default": true,
+     "summary": "Parse TCP connections",
+     "summary.alt.bool.not": "Do not parse TCP connections",
+ }
+
+Another kind of alternate is grammatical variance based on noun numbers
+(C<alt.numnoun.WHICH> where C<WHICH> can be C<singular> or C<plural>). Example
+(in a Rinci function argument's specification, where an array argument like
+C<file> translates in a CLI environment to multiple C<--file> option
+specification):
+
+ "file": {
+     "schema": ["array*", {"of":"str*"}],
+     "summary": "Specify one or more files to check",
+     "summary.alt.numnoun.singular": "Add a file to check (can be specified multiple times)",
+ }
+
+Combination of alternates. When two or more alternates is combined, they must be
+ordered asciibetically and separated with an underscore C<_>. For example:
 
  {
      "default_lang": "en_US",
@@ -260,42 +289,6 @@ taken to not be ambiguous, since attribute names can only be words):
      "summary.alt.env_lang.web.id_ID":"(Summary in Indonesian, for web)",
      "summary.alt.env_lang.cmdline.id_ID":"(Summary in Indonesian, for cmdline)"
  }
-
-Another one that is currently used:
-
- alt.neg
-
-This is used for example in summary of L<Rinci> function argument specification
-to specify the negation. For example:
-
- # argument specification
- "full": {
-     "schema": "bool",
-     "summary": "Turn on full processing",
-     "summary.alt.neg": "Turn off full processing"
- }
-
-The C<alt.neg> version can be displayed, e.g. when showing summary for
-command-line option C<--nofull> (while the "positive" summary can be used for
-the C<--full> option).
-
-Another related one:
-
- alt.posneg
-
-This one means showing both positive and negative version in one statement, for
-example:
-
- # argument specification
- "full": {
-     "schema": "bool",
-     "summary": "Turn on full processing",
-     "summary.alt.neg": "Turn off full processing"
-     "summary.alt.posneg": "Turn on (off) full processing"
- }
-
-In a CLI application, the C<alt.posneg> version can be used as a summary for
-entry C<--full (--nofull)>.
 
 =back
 
@@ -320,7 +313,7 @@ Please visit the project's homepage at L<https://metacpan.org/release/DefHash>.
 
 =head1 SOURCE
 
-Source repository is at L<https://github.com/perlancar/perl-DefHash>.
+Source repository is at L<https://github.com/sharyanto/perl-DefHash>.
 
 =head1 BUGS
 

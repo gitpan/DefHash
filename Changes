@@ -1,5 +1,11 @@
 Revision history for DefHash
 
+1.0.8   2014-12-02 (PERLANCAR)
+
+	- Change alt.{neg,pos,posneg} to alt.bool.{not} to allow alternate
+	  combination; specify alt.numnoun.
+
+
 1.0.7   2014-11-20 (PERLANCAR)
 
         - No spec changes.

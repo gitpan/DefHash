@@ -4,8 +4,8 @@ use 5.010001;
 use strict;
 use warnings;
 
-our $VERSION = '1.0.7'; # VERSION
-our $DATE = '2014-11-20'; # DATE
+our $VERSION = '1.0.8'; # VERSION
+our $DATE = '2014-12-02'; # DATE
 
 our %SCHEMAS;
 
@@ -118,7 +118,7 @@ Sah::Schema::DefHash - Sah schemas to validate DefHash
 
 =head1 VERSION
 
-This document describes version 1.0.7 of Sah::Schema::DefHash (from Perl distribution DefHash), released on 2014-11-20.
+This document describes version 1.0.8 of Sah::Schema::DefHash (from Perl distribution DefHash), released on 2014-12-02.
 
 =head1 SYNOPSIS
 
@@ -150,7 +150,7 @@ Please visit the project's homepage at L<https://metacpan.org/release/DefHash>.
 
 =head1 SOURCE
 
-Source repository is at L<https://github.com/perlancar/perl-DefHash>.
+Source repository is at L<https://github.com/sharyanto/perl-DefHash>.
 
 =head1 BUGS
 
